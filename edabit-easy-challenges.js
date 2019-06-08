@@ -111,3 +111,126 @@ function societyName (friends){
 }
 
 console.log(societyName(["Harry","Tom","Omer"]));
+//
+// Transform into an Array with No Duplicates
+// A set is a collection of unique items. A set can be formed from an array from removing all duplicate items.
+//
+// [1, 3, 3, 5, 5, 5]
+// // original array
+//
+// [1, 3, 5]
+// // original array transformed into a set
+// Create a function that transforms an array into a set.
+//
+// Examples
+// set([1, 3, 3, 5, 5]) ➞ [1, 3, 5]
+//
+// set([4, 4, 4, 4]) ➞ [4]
+//
+// set([5, 7, 8, 9, 10, 15]) ➞ [5, 7, 8, 9, 10, 15]
+// Notes
+// Note: For this question, output an array, not a set. These are two distinctly different data structures in Javascript (although they can be converted from one to the other).
+
+  console.log("create an array with unique values (a set)  but return it has an array ");
+  function set (arr) {
+    return [...new Set (arr)]
+  }
+
+console.log(set([4,5,5,4,2]));
+//
+// Create a function that takes an array of numbers and return both the minimum and maximum numbers, in that order.
+//
+// Examples
+// minMax([1, 2, 3, 4, 5]) ➞ [1, 5]
+//
+// minMax([2334454, 5]) ➞ [5, 2334454]
+//
+// minMax([1]) ➞ [1, 1]
+// Notes
+// All test arrays will have at least one element and are valid.
+
+console.log("Function that return the min number and max number inside of an array");
+
+function minMax (arr){
+  return [Math.min(...arr), Math.max(...arr)];
+}
+
+console.log(minMax([2,5,7]));
+
+// another opotion:
+// sorting the array and sending the first element of the array and the last
+function minMax2 (arr){
+  arr.sort((a,b) => {
+    return a - b})
+  return [arr[0], arr[arr.length-1]]
+}
+
+console.log(minMax2([2,66,88,1]));
+//
+// Create a function that returns the ASCII value of the passed in character.
+//
+// Examples
+// ctoa("A") ➞ 65
+//
+// ctoa("m") ➞ 109
+//
+// ctoa("[") ➞ 91
+//
+// ctoa("\") ➞ 92
+
+console.log("return ASCII value of the char passed to the function ");
+
+function ctoa (char){
+  return char.charCodeAt()
+}
+
+console.log(ctoa("A"));
+//
+// Case Insensitive Comparison
+// Write a function that validates whether two strings are identical. Make this validator case insensitive.
+//
+// Examples
+// match("hello", "hELLo") ➞ true
+//
+// match("motive", "emotive") ➞ false
+//
+// match("venom", "VENOM") ➞ true
+//
+// match("mask", "mAskinG") ➞ false
+
+console.log("Check if 2 strings are identical and in a case insensitive manner");
+
+function match (str1, str2){
+  return str1.toLowerCase() === str2.toLowerCase()? true:false
+}
+
+console.log(match("hello","heLLo"));
+//
+// Create a function that determines whether or not it's possible to split a pie fairly given these three parameters:
+//
+// Total number of slices.
+// Number of recipients.
+// How many slices each person gets.
+// The function will be in this form:
+//
+// equalSlices(total slices, no. recipients, slices each)
+// Examples
+// equalSlices(11, 5, 2) ➞ true
+// // 5 people x 2 slices each = 10 slices < 11 slices
+//
+// equalSlices(11, 5, 3) ➞ false
+// // 5 people x 3 slices each = 15 slices > 11 slices
+//
+// equalSlices(8, 3, 2) ➞ true
+//
+// equalSlices(8, 3, 3) ➞ false
+//
+// equalSlices(24, 12, 2) ➞ true
+
+console.log("check if you have enough slices to share fairly ");
+
+function equalSlices (total , people , each ){
+  return each*people > total ? false:true
+}
+
+console.log(equalSlices(8,3,2));
